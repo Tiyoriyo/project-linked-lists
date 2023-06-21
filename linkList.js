@@ -45,16 +45,14 @@ const linkedList = () => ({
     return array;
   },
   at(index) {
-    if (index < 0 || typeof index !== 'number') {
-      return 'AT: INVALID INDEX (MUST BE NUMBER OR GREATER/EQUAL TO 0';
-    }
+    if (!this.list.head) return 'Error: Empty List';
+    if (typeof index !== 'number') return 'Error: Specified Index is not a number';
+    if (index < 0) return 'Error: Specified Index can\'t be less than 0';
+    if (index > this.size() - 1) return `Error: The list does not reach this index, it's max index is ${this.size() - 1}`;
 
-    let temp = this.list.head;
     let count = 0;
-
+    let temp = this.list.head;
     while (count < index) {
-      if (temp === null) throw Error('Bombo');
-
       temp = temp.nextNode;
       count += 1;
     }
@@ -166,5 +164,9 @@ const linkedList = () => ({
 
 const list = linkedList();
 
-console.log(list.tail());
+list.append('C');
+list.append('A');
+list.append('R');
+
+console.log(list.at(3));
 console.log(list.toString());
