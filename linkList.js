@@ -105,6 +105,7 @@ const linkedList = () => ({
     return null;
   },
   toString() {
+    if (!this.logList().length) return 'Empty List';
     let listArray = this.logList();
     listArray = listArray.join(' -> ');
     listArray += ' -> null';
@@ -165,8 +166,6 @@ const linkedList = () => ({
 });
 
 const list = linkedList();
-list.append('Yessir!');
-list.prepend('Bomboclat');
 
 console.log(list.logList());
 console.log(list.toString());
