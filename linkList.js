@@ -26,9 +26,10 @@ const linkedList = () => ({
     return count;
   },
   head() {
-    return (this.list.head) ? this.list.head : 'Error: Cannot find the head item due to an empty list';
+    return this.list.head || 'Error: Cannot find the head item due to an empty list';
   },
   tail() {
+    if (!this.list.head) return 'Error: Cannot find the tail item due to an empty list';
     let temp = this.list.head;
     while (temp.nextNode) { temp = temp.nextNode; }
     return temp;
@@ -165,5 +166,5 @@ const linkedList = () => ({
 
 const list = linkedList();
 
-console.log(list.head());
+console.log(list.tail());
 console.log(list.toString());
