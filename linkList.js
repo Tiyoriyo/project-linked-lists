@@ -18,10 +18,8 @@ const linkedList = () => ({
     this.list.head = newHead;
   },
   size() {
-    let temp = this.list.head;
-    let count = 0;
+    let count = 0; let temp = this.list.head;
     while (temp) {
-      if (temp === null) break;
       temp = temp.nextNode;
       count += 1;
     }
@@ -167,5 +165,12 @@ const linkedList = () => ({
 
 const list = linkedList();
 
-console.log(list.logList());
+list.append('C');
+list.append('R');
+list.append('A');
+list.append('B');
+list.append('E');
+list.append('N');
+
+console.log(list.size());
 console.log(list.toString());
