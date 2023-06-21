@@ -1,5 +1,5 @@
 # project-linked-lists
-Single Linked List created with JavaScript, as instructed by the glorious Odin Project
+Single Linked List Data Structured created with JavaScript, as instructed by the glorious Odin Project
 
 ## Features
 - `append(value)` adds a new node to the end of the list
