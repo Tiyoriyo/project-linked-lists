@@ -1,0 +1,29 @@
+{
+  "name": "project-linked-lists",
+  "version": "1.0.0",
+  "main": "linkList.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiyoriyo/project-linked-lists.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiyoriyo/project-linked-lists/issues"
+  },
+  "homepage": "https://github.com/Tiyoriyo/project-linked-lists#readme",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "webpack": "^5.87.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "type": "module"
+}
