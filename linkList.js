@@ -14,8 +14,12 @@ const linkedList = () => ({
     }
   },
   prepend(value) {
-    const newHead = node(value, this.list.head);
-    this.list.head = newHead;
+    if (Object.keys(this.list).length === 0) {
+      this.list = { head: node(value) };
+    } else {
+      const newHead = node(value, this.list.head);
+      this.list.head = newHead;
+    }
   },
   size() {
     let count = 0; let temp = this.list.head;
@@ -102,30 +106,30 @@ const linkedList = () => ({
     return listArray;
   },
   insertAt(value, index) {
-    if (typeof index !== 'number') return console.log('Index must be a number');
+    if (typeof index !== 'number') return 'Error: Index must be a number';
+    if (index < 0 || index > this.size()) return `Error: Index must not be less than 0 nor more than ${this.size()}`;
+
     if (index === 0) {
       this.prepend(value);
-      return 'inserted';
-    }
-    if (index === this.size()) {
+      return 'Notification: New Node has been inserted to the beginning of the list';
+    } if (index === this.size()) {
       this.append(value);
-      return 'inserted';
-    }
-    if (index < 0 || index > this.size()) {
-      return `Index must not be less than 0 and more than ${this.size()}`;
+      return 'Notification: New Node has been inserted to the end of the list';
     }
 
     let count = 0;
     let prev = null;
     let cur = this.list.head;
+
     while (count < index) {
       count += 1;
       prev = cur;
       cur = cur.nextNode;
     }
+
     const newNode = node(value, cur);
     prev.nextNode = newNode;
-    return 'inserted';
+    return 'Notification: New Node has been inserted at the specified index';
   },
   removeAt(index) {
     if (typeof index !== 'number') return console.log('The index must be a number');
