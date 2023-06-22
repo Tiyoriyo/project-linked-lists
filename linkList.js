@@ -132,38 +132,31 @@ const linkedList = () => ({
     return 'Notification: New Node has been inserted at the specified index';
   },
   removeAt(index) {
-    if (typeof index !== 'number') return console.log('The index must be a number');
-    if (index < 0 || index > this.size() - 1) {
-      return `Index must not be less than 0 and more than ${this.size() - 1}`;
-    }
+    if (typeof index !== 'number') return 'Error: The index must be a number';
+    if (!this.size()) return 'Error: The list is empty, thus there is nothing to remove';
+    if (index < 0 || index > this.size() - 1) return `Error: Index must not be less than 0 and more than ${this.size() - 1}`;
+
     if (index === 0) {
       const newHead = this.list.head.nextNode;
       this.list.head = newHead;
       return 'removed';
     }
 
+    let count = 0;
     let prev = null;
     let cur = this.list.head;
-    let count = 0;
 
     while (count <= index) {
       if (count === index) {
         prev.nextNode = cur.nextNode;
-        return 'removed';
+        return 'Notification: The Node at the specified index has been removed';
       }
       count += 1;
       prev = cur;
       cur = cur.nextNode;
-    }
-    return 'removed';
+    } return 'Notification: The Node at the specified index has been removed';
   },
 });
 
 const list = linkedList();
-
-list.append('C');
-list.append('A');
-list.append('R');
-
-console.log(list.find('R'));
 console.log(list.toString());
