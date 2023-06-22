@@ -79,14 +79,10 @@ const linkedList = () => ({
     let temp = this.list.head;
     let valueCheck = false;
 
-    while (temp.nextNode) {
-      if (temp.data === value) {
-        valueCheck = true;
-      }
-
+    while (temp) {
+      if (temp.data === value) valueCheck = true;
       temp = temp.nextNode;
-    }
-    return valueCheck;
+    } return valueCheck;
   },
   find(value) {
     let index = 0;
@@ -169,5 +165,5 @@ list.append('C');
 list.append('A');
 list.append('R');
 
-console.log(list.pop());
+console.log(list.contains('R'));
 console.log(list.toString());
