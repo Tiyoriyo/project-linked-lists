@@ -95,7 +95,7 @@ const linkedList = () => ({
     } return null;
   },
   toString() {
-    if (!this.logList().length) return 'Empty List';
+    if (!this.logList().length) return 'Error: Empty List';
     let listArray = this.logList();
     listArray = listArray.join(' -> ');
     listArray += ' -> null';
