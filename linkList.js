@@ -88,15 +88,11 @@ const linkedList = () => ({
     let index = 0;
     let temp = this.list.head;
 
-    while (temp.nextNode) {
-      if (temp.data === value) {
-        return index;
-      }
-
-      temp = temp.nextNode;
+    while (temp) {
+      if (temp.data === value) return index;
       index += 1;
-    }
-    return null;
+      temp = temp.nextNode;
+    } return null;
   },
   toString() {
     if (!this.logList().length) return 'Empty List';
@@ -165,5 +161,5 @@ list.append('C');
 list.append('A');
 list.append('R');
 
-console.log(list.contains('R'));
+console.log(list.find('R'));
 console.log(list.toString());
