@@ -59,10 +59,10 @@ const linkedList = () => ({
     return temp;
   },
   pop() {
-    if (this.size() <= 1) {
+    if (this.size() === 1) {
       this.list = {};
-      return;
-    }
+      return 'Success! Last item has been removed';
+    } if (this.size() === 0) return 'Notification: Pop had no effect because the list is empty.';
 
     let prev = null;
     let cur = this.list.head;
@@ -72,7 +72,8 @@ const linkedList = () => ({
       cur = cur.nextNode;
     }
 
-    prev.nextNode = null;
+    prev.nextNode = null; // Break off previous item's connection to the last item
+    return 'Success! Last item has been removed';
   },
   contains(value) {
     let temp = this.list.head;
@@ -168,5 +169,5 @@ list.append('C');
 list.append('A');
 list.append('R');
 
-console.log(list.at(3));
+console.log(list.pop());
 console.log(list.toString());
