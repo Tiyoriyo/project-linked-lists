@@ -38,16 +38,6 @@ const linkedList = () => ({
     while (temp.nextNode) { temp = temp.nextNode; }
     return temp;
   },
-  logList() {
-    let temp = this.list.head;
-    const array = [];
-    while (temp) {
-      if (temp === null) break;
-      array.push(temp.data);
-      temp = temp.nextNode;
-    }
-    return array;
-  },
   at(index) {
     if (!this.list.head) return 'Error: Empty List';
     if (typeof index !== 'number') return 'Error: Specified Index is not a number';
@@ -99,9 +89,22 @@ const linkedList = () => ({
     } return null;
   },
   toString() {
-    if (!this.logList().length) return 'Error: Empty List';
-    let listArray = this.logList();
-    listArray = listArray.join(' -> ');
+    if (!this.size()) return 'Error: Empty List';
+    const { list } = this;
+    function getArrayFromList() {
+      let temp = list.head;
+      const array = [];
+
+      while (temp) {
+        if (!temp) break;
+        array.push(temp.data);
+        temp = temp.nextNode;
+      }
+      return array;
+    }
+
+    const array = getArrayFromList();
+    let listArray = array.join(' -> ');
     listArray += ' -> null';
     return listArray;
   },
@@ -159,4 +162,7 @@ const linkedList = () => ({
 });
 
 const list = linkedList();
+list.append('C');
+list.append('A');
+list.append('R');
 console.log(list.toString());
